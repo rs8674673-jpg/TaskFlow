@@ -7,16 +7,12 @@ plugins {
 
 android {
     namespace = "com.ravi.taskflow"
-    compileSdk {
-        version = release(36) {
-            minorApiLevel = 1
-        }
-    }
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.ravi.taskflow"
         minSdk = 26
-        targetSdk = 36
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
@@ -51,8 +47,16 @@ dependencies {
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.compose.material3)
 
+    // Material Icons Extended: Provides additional icons beyond the basic Material Design set
+    implementation(libs.androidx.compose.material.icons.extended)
+
     implementation(libs.lifecycle.viewmodel)
     implementation(libs.navigation.compose)
+
+    // Material3 Adaptive Navigation Suite: Provides UI components that automatically adjust to different screen sizes (Mobile, Tablet, Desktop)
+    implementation(libs.androidx.material3.adaptive.navigation.suite)
+    // Material3 Window Size Class: Used to calculate the screen's window size class (Compact, Medium, Expanded) for responsive layouts
+    implementation(libs.androidx.material3.windowsizeclass)
 
     // Hilt
     implementation(libs.hilt.android)
