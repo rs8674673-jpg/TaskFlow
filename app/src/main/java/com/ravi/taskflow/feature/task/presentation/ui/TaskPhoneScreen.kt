@@ -1,27 +1,21 @@
-package com.ravi.taskflow.feature.task.ui
+package com.ravi.taskflow.feature.task.presentation.ui
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.FloatingActionButton
-import androidx.compose.material3.Icon
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.stringResource
-import com.ravi.taskflow.R
-import com.ravi.taskflow.feature.task.ui.components.TaskItem
+import com.ravi.taskflow.feature.task.components.TaskItem
 import com.ravi.taskflow.feature.task.viewmodel.TaskViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TaskPhoneScreen(
-    viewModel: TaskViewModel
+    viewModel: TaskViewModel,
+    onTaskClick: (Int) -> Unit
 ) {
 
     val tasks = viewModel.tasks
@@ -29,7 +23,7 @@ fun TaskPhoneScreen(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text(stringResource(R.string.taskflow)) }
+                title = { Text("TaskFlow") }
             )
         },
         floatingActionButton = {
@@ -44,7 +38,10 @@ fun TaskPhoneScreen(
         ) {
 
             items(tasks) { task ->
-                TaskItem(task)
+                TaskItem(
+                    task = task,
+                    onClick = { onTaskClick(it.id) }
+                )
             }
         }
     }

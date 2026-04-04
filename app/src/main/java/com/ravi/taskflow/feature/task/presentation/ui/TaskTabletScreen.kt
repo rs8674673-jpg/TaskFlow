@@ -1,4 +1,4 @@
-package com.ravi.taskflow.feature.task.ui
+package com.ravi.taskflow.feature.task.presentation.ui
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -9,12 +9,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import com.ravi.taskflow.R
-import com.ravi.taskflow.feature.task.ui.components.TaskItem
+import com.ravi.taskflow.feature.task.components.TaskItem
 import com.ravi.taskflow.feature.task.viewmodel.TaskViewModel
 
 @Composable
 fun TaskTabletScreen(
-    viewModel: TaskViewModel
+    viewModel: TaskViewModel,
+    onTaskClick: (Int) -> Unit
 ) {
 
     val tasks = viewModel.tasks
@@ -34,7 +35,10 @@ fun TaskTabletScreen(
         ) {
 
             items(tasks) { task ->
-                TaskItem(task)
+                TaskItem(
+                    task = task,
+                    onClick = { onTaskClick(it.id) }
+                )
             }
         }
 

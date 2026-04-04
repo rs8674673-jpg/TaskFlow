@@ -1,4 +1,4 @@
-package com.ravi.taskflow.feature.task.ui
+package com.ravi.taskflow.feature.task.presentation.ui
 
 import androidx.compose.material3.windowsizeclass.WindowWidthSizeClass
 import androidx.compose.runtime.Composable
@@ -7,7 +7,8 @@ import com.ravi.taskflow.feature.task.viewmodel.TaskViewModel
 
 @Composable
 fun TaskRootScreen(
-    viewModel: TaskViewModel
+    viewModel: TaskViewModel,
+    onTaskClick: (Int) -> Unit
 ) {
 
     val windowInfo = rememberWindowInfo()
@@ -16,19 +17,17 @@ fun TaskRootScreen(
 
         WindowWidthSizeClass.Compact -> {
             // Phone UI
-            TaskPhoneScreen(viewModel)
+            TaskPhoneScreen(viewModel, onTaskClick)
         }
 
         WindowWidthSizeClass.Medium -> {
             // Foldable UI
-            TaskTabletScreen(viewModel)
+            TaskTabletScreen(viewModel, onTaskClick)
         }
 
         WindowWidthSizeClass.Expanded -> {
             // Tablet/Desktop UI
-            TaskTabletScreen(viewModel)
+            TaskTabletScreen(viewModel, onTaskClick)
         }
     }
 }
-
-

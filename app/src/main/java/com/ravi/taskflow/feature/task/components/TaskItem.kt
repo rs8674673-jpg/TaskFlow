@@ -1,4 +1,4 @@
-package com.ravi.taskflow.feature.task.ui.components
+package com.ravi.taskflow.feature.task.components
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.icons.Icons
