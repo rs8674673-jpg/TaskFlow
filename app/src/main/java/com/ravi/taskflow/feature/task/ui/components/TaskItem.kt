@@ -7,7 +7,9 @@ import androidx.compose.material.icons.filled.Schedule
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import com.ravi.taskflow.R
 import com.ravi.taskflow.domain.model.Task
 
 /**
@@ -73,7 +75,7 @@ fun TaskItem(
 
                     Spacer(Modifier.width(6.dp))
 
-                    Text("Completed")
+                    Text(stringResource(R.string.completed))
 
                 } else {
 
@@ -84,7 +86,7 @@ fun TaskItem(
 
                     Spacer(Modifier.width(6.dp))
 
-                    Text("Pending")
+                    Text(stringResource(R.string.pending))
                 }
             }
         }

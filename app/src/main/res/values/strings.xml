@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">TaskFlow</string>
+    <string name="select_a_task">Select a Task</string>
+    <string name="taskflow">TaskFlow</string>
+    <string name="pending">Pending</string>
+    <string name="completed">Completed</string>
 </resources>

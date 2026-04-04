@@ -7,6 +7,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
+import com.ravi.taskflow.R
 import com.ravi.taskflow.feature.task.ui.components.TaskItem
 import com.ravi.taskflow.feature.task.viewmodel.TaskViewModel
 
@@ -46,7 +48,7 @@ fun TaskTabletScreen(
                 .fillMaxHeight(),
             contentAlignment = Alignment.Center
         ) {
-            Text("Select a Task")
+            Text(stringResource(R.string.select_a_task))
         }
     }
 }
