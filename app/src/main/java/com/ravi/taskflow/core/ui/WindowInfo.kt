@@ -13,6 +13,10 @@ data class WindowInfo(
     val widthSizeClass: WindowWidthSizeClass
 )
 
+enum class DeviceType {
+    PHONE, TABLET
+}
+
 @OptIn(ExperimentalMaterial3WindowSizeClassApi::class)
 @Composable
 fun rememberWindowInfo(): WindowInfo {
@@ -21,4 +25,14 @@ fun rememberWindowInfo(): WindowInfo {
     val windowSizeClass = calculateWindowSizeClass(activity)
 
     return WindowInfo(widthSizeClass = windowSizeClass.widthSizeClass)
+}
+
+@Composable
+fun rememberDeviceType(): DeviceType {
+    val windowInfo = rememberWindowInfo()
+    return if (windowInfo.widthSizeClass == WindowWidthSizeClass.Compact) {
+        DeviceType.PHONE
+    } else {
+        DeviceType.TABLET
+    }
 }
